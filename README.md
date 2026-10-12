@@ -1,43 +1,86 @@
-# ApexLedger ERP - Enterprise SQL Server Database Schema (v1.0.0)
+# 🏛️ ApexLedger ERP Database Schema (v1.2.0)
+### Enterprise-Grade Production-Ready Foundation for Microsoft SQL Server
 
-**ApexLedger ERP** is a production-ready, highly optimized relational database schema designed for modern enterprise-grade solutions. Built using strict clean architectural standards for **Microsoft SQL Server 2019 and above**, this schema provides a solid foundation for software developers, architects, and startups looking to build Multi-Tenant SaaS or traditional localized ERP systems without wasting months on database planning.
-
----
-
-## 🚀 Key Features & Architectural Highlights
-
-- **Multi-Language (Localization) Support:** Built-in dual-language column implementation (English and Arabic) across core master tables (Products, Categories, Warehouses, Roles, and Accounts).
-- **Intelligent Inventory Automation (Triggers):** Integrated backend triggers that dynamically manage real-time stock balances, automatic multi-warehouse logging, and rolling product cost price calculation on every sale or purchase transaction.
-- **Enterprise Security (RBAC):** Granular Role-Based Access Control layout supporting infinite custom system roles, explicit permissions mapping, and user assignment tables.
-- **System Audit Logging:** Complete administrative tracking engine that records database manipulations (`INSERT`, `UPDATE`, `DELETE`) with user context stamps.
-- **Double-Entry Financial Accounting:** Full hierarchical Chart of Accounts schema supporting complex tree structures and strict self-balancing Journal Entry lines.
+> **ApexLedger ERP** is a highly optimized, fully relational database schema designed for software engineers, database architects, and tech firms looking to accelerate the development of modern ERP systems and enterprise solutions on **Microsoft SQL Server 2019+** without wasting months designing schemas from scratch.
 
 ---
 
-## 📂 Core Modules Included
+## 🏗️ Open Core vs. Commercial License Architecture
 
-1. **Identity & Security Module (RBAC):** `Users`, `Roles`, `Permissions`, `RolePermissions`, `UserRoles`, and `AuditLogs`.
-2. **Logistics & Inventory Module:** `Branches`, `Warehouses`, `Categories`, `ProductUnits`, `Products`, and `ProductStock`.
-3. **Commercial Trading Module:** `Suppliers`, `Customers`, `PurchaseInvoices`, `PurchaseInvoiceDetails`, `SalesInvoices`, and `SalesInvoiceDetails`.
-4. **General Ledger Financial Module:** `Accounts` (Hierarchical tree configuration), `JournalEntries`, and `JournalEntryLines`.
+This repository adopts an **Open Core** approach to provide full visibility into our clean relational database architecture:
 
----
+| Feature / Component | GitHub Open Core (Base Schema) | Gumroad Commercial Package |
+| :--- | :---: | :---: |
+| **21 Core Database Tables** | ✅ Included | ✅ Included |
+| **Foreign Keys & Indexing Scheme** | ✅ Included | ✅ Included |
+| **Real-time DML Stock Triggers** | ❌ Excluded | ✅ **Exclusive** |
+| **Automated Negative Balance Guard** | ❌ Excluded | ✅ **Exclusive** |
+| **Full System Audit Logging Engine** | ❌ (Structure Stub Only) | ✅ **Exclusive** |
+| **48/48 Automated Validation Test Suite** | ❌ Excluded | ✅ **Exclusive** |
+| **Production Deploy-Ready SQL Scripts** | ❌ Excluded | ✅ **Exclusive** |
 
-## 🛠️ Deployment & Installation Guide
-
-1. Open **SQL Server Management Studio (SSMS)** and connect to your SQL Server 2019+ instance.
-2. Create a fresh target database configuration or let the initialization handler manage it.
-3. Open a **New Query** window, paste the unified script contents from `ApexLedgerERP_Schema.sql`.
-4. Click **Execute** (`F5`).
-5. Ensure the success confirmation log appears inside the output window:  
-   `SUCCESS: ApexLedger ERP Database Deployed Successfully on SQL 2019!`
-
----
-
-## 📄 File Encoding Notice
-This script utilizes `NVARCHAR` types to safely preserve localized Arabic configurations. The primary script file must be saved and kept under **UTF-8 with BOM Encoding** to prevent language compilation corruption across varying server locales.
+🛒 **Get the Full Operational Triggers, Audit Engines, & Commercial License:**  
+You can purchase and immediately download the commercial distribution package here:  
+👉 **[ApexLedger ERP v1.2.0 on Gumroad](https://waelezzat.gumroad.com/l/apexledger-erp-v120)**
 
 ---
 
-## 🏛️ License & Copyright
-© 2026 Wael Ezzat. All rights reserved. Registered Commercial Asset on Envato Market / CodeCanyon.
+## 🎯 Why ApexLedger ERP?
+Building enterprise ERP databases requires handling intricate inventory rules, double-entry accounting balances, and role-based access controls—a process that typically takes months of design and testing.  
+**ApexLedger ERP** provides a battle-tested, 100% validated foundational schema so you can jump straight into building your application's logic and front-end features.
+
+---
+
+## ⚙️ Architectural Highlights
+
+- **Localization & Dual-Language Support:** Schema includes bilingual column attributes (English & Arabic) across core entities (Products, Categories, Warehouses, Roles).
+- **Smart Inventory Automation:** Advanced `DML Triggers` for real-time stock adjustment, moving average cost tracking, and negative stock enforcement *(Included in Commercial Package)*.
+- **Role-Based Access Control (RBAC):** Granular security framework supporting system roles, individual user assignments, and detailed action permissions.
+- **Full Audit Logging:** Administrative tracking engine capturing `INSERT`, `UPDATE`, and `DELETE` events with exact user stamps and XML context diffs.
+- **Double-Entry General Ledger:** Flexible Chart of Accounts hierarchy supporting balanced journal entry workflows.
+
+---
+
+## 📂 Core Schema Modules (21 Tables)
+
+The architecture is categorized into 4 core functional modules:
+
+1. **Security & Identity (RBAC & Audit):**  
+   - `Users`, `Roles`, `Permissions`, `RolePermissions`, `UserRoles`, `AuditLogs`
+2. **Logistics & Inventory:**  
+   - `Branches`, `Warehouses`, `Categories`, `ProductUnits`, `Products`, `ProductStock`
+3. **Commercial Transactions (Sales & Purchasing):**  
+   - `Suppliers`, `Customers`, `PurchaseInvoices`, `PurchaseInvoiceDetails`, `SalesInvoices`, `SalesInvoiceDetails`
+4. **General Ledger & Accounting:**  
+   - `Accounts`, `JournalEntries`, `JournalEntryLines`
+
+---
+
+## 🧪 Quality Assurance & Test Verification (100% Passed)
+
+The database schema underwent rigorous automated validation and passed with a 100% score (48/48 tests):
+- **15/15** Functional End-to-End Business Tests (Procurement & Sales Cycle).
+- **12/12** Schema Hardening & Constraint Integrity Tests.
+- **21/21** Security, Concurrency, and Data Protection Tests.
+
+---
+
+## 🛠️ Quick Start & Installation
+
+1. Launch **SQL Server Management Studio (SSMS)** and connect to your SQL Server 2019+ instance.
+2. Create a new empty database.
+3. Open a `New Query` window and paste the contents of `ApexLedgerERP_DB.sql`.
+4. Click **Execute** (or press `F5`).
+5. Confirm successful deployment via the output messages panel:  
+   `SUCCESS: ApexLedger ERP Base Schema Deployed Successfully on SQL Server!`
+
+---
+
+## 📄 Character Encoding Notice
+The schema includes unicode column types (`NVARCHAR`). Ensure the SQL script is saved using **UTF-8 with BOM** encoding to preserve international character sets across different server collations.
+
+---
+
+## 🏛️ Legal & Licensing
+© 2026 Wael Ezzat. All rights reserved.  
+Refer to the [LICENSE](./LICENSE) file and our [Gumroad Commercial Page](https://waelezzat.gumroad.com/l/apexledger-erp-v120) for commercial deployments and rights usage.
